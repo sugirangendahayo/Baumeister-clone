@@ -1,18 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>baumesiter-clone</title>
-     <link href="./src/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app">
-       <h1 class="text-3xl font-bold underline">
-    Hello world! jkjknk
-  </h1>
-    </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/src/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+        <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                fontFamily: {
+                  outfit: ['Outfit', 'sans-serif'],
+                },
+              },
+            },
+          };
+        </script>
+        <title>Website project template</title>
+    </head>
+    <script>
+        const loadComponents = (id, url) => {
+            fetch(url)
+                .then((response) => response.text())
+                .then((html) => {
+                    document.getElementById(id).innerHTML = html;
+                });
+        };
+
+        window.onload = () => {
+            loadComponents("hero", "src/sections/hero.html");
+        };
+    </script>
+    <body>
+        <div id="hero" class="overflow-x-hidden "></div>
+    </body>
 </html>
