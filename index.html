@@ -2,17 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>baumesiter-clone</title>
-     <link href="./src/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Website project template</title>
+
+    <style>
+      body {
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
   </head>
+  <script>
+    const loadComponents = (id, url) => {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById(id).innerHTML = html;
+        });
+    };
+
+    window.onload = () => {
+      loadComponents("description", "src/description.html");
+    };
+  </script>
   <body>
-    <div id="app">
-       <h1 class="text-3xl font-bold underline">
-    Hello world! jkjknk
-  </h1>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+    <div id="description"></div>
   </body>
 </html>
