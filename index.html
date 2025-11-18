@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +18,8 @@
 
       fetch(url).then((response) => response.text()).then((html) => {
         let content = document.getElementById(id);
+
+        
         //Nav Bar navigation
         content.innerHTML = html;
         const myNavBar = content.querySelector(".navBar")
@@ -28,10 +29,6 @@
         const lowerBar = myNavBar.querySelector(".lowerBar")
         myNavBar.addEventListener("click", function () {
           if (dialog.open) dialog.close(); else { dialog.show() }
-
-
-
-
           upperBar.classList.toggle("transform")
           upperBar.classList.toggle("rotate-45")
           upperBar.classList.toggle("top-0.5")
@@ -39,29 +36,18 @@
           lowerBar.classList.toggle("-rotate-45")
           lowerBar.classList.toggle("-top-1")
           middleBar.classList.toggle('hidden')
-
-
-
         })
       })
 
     }
   }
-
   window.onload = function () {
     loadComponents('header', 'src/navBar.html');
-
-    // loadComponents('hero', 'src/sections/hero.html');
-    // loadComponents('contact', 'src/sections/contact.html');
-    // loadComponents('footer', 'src/sections/footer.html');
   }
 </script>
 
 <body class="p-4" style="font-family: Outfit;">
   <div id="header"></div>
-  <!-- <div id="hero"></div>
-  <div id="contact"></div>
-  <div id="footer"></div> -->
 </body>
 <script src="/src/main.js">
 
