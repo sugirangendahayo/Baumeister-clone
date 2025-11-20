@@ -32,9 +32,14 @@
 
     window.onload = () => {
       loadComponents("description", "src/description.html");
+
+      loadComponents("description-vector", "src/description-vector.html");
     };
   </script>
-  <body>
+  <body class="h-[2700px]">
+    <!--Description section-->
     <div id="description"></div>
+    <!--Vectors below Description section-->
+    <div id="description-vector" class="sticky top-0"></div>
   </body>
 </html>
