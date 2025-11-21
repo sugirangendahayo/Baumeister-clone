@@ -1,18 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>baumesiter-clone</title>
-     <link href="./src/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app">
-       <h1 class="text-3xl font-bold underline">
-    Hello world! jkjknk
-  </h1>
-    </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
+  <title>Baumeister</title>
+</head>
+<script>
+  const loadComponents = (id, url) => {
+    if (document.readyState === "complete") {
+
+      fetch(url).then((response) => response.text()).then((html) => {
+        let content = document.getElementById(id);
+
+        
+        //Nav Bar navigation
+        content.innerHTML = html;
+        const myNavBar = content.querySelector(".navBar")
+        const dialog = content.querySelector(".navigations")
+        const upperBar = myNavBar.querySelector(".upperBar")
+        const middleBar = myNavBar.querySelector(".middleBar")
+        const lowerBar = myNavBar.querySelector(".lowerBar")
+        myNavBar.addEventListener("click", function () {
+          if (dialog.open) dialog.close(); else { dialog.show() }
+          upperBar.classList.toggle("transform")
+          upperBar.classList.toggle("rotate-45")
+          upperBar.classList.toggle("top-0.5")
+          lowerBar.classList.toggle("transform")
+          lowerBar.classList.toggle("-rotate-45")
+          lowerBar.classList.toggle("-top-1")
+          middleBar.classList.toggle('hidden')
+        })
+      })
+
+    }
+  }
+  window.onload = function () {
+    loadComponents('header', 'src/navBar.html');
+  }
+</script>
+
+<body class="p-4" style="font-family: Outfit;">
+  <div id="header"></div>
+</body>
+<script src="/src/main.js">
+
+</script>
+
 </html>
