@@ -43,11 +43,17 @@
   }
   window.onload = function () {
     loadComponents('header', 'src/navBar.html');
+    loadComponents("description", "src/description.html");
+    loadComponents("description-vector", "src/description-vector.html");
   }
 </script>
 
 <body class="p-4" style="font-family: Outfit;">
   <div id="header"></div>
+      <!--Description section-->
+    <div id="description"></div>
+    <!--Vectors below Description section-->
+    <div id="description-vector" class="sticky top-0"></div>
 </body>
 <script src="/src/main.js">
 
