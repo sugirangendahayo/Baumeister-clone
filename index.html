@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
       fetch(url).then((response) => response.text()).then((html) => {
         let content = document.getElementById(id);
 
-        
+
         //Nav Bar navigation
         content.innerHTML = html;
         const myNavBar = content.querySelector(".navBar")
@@ -42,12 +43,16 @@
     }
   }
   window.onload = function () {
-    loadComponents('header', 'src/navBar.html');
+    loadComponents('navBar', 'src/sections/navBar.html');
+    loadComponents('hero', 'src/sections/hero.html');
+    loadComponents('description', 'src/sections/description.html');
   }
 </script>
 
 <body class="p-4" style="font-family: Outfit;">
-  <div id="header"></div>
+  <div id="navBar"></div>
+  <div id="hero"></div>
+  <div id="description"></div>
 </body>
 <script src="/src/main.js">
 
