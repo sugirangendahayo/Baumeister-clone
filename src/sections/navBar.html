@@ -1,23 +1,51 @@
-<section class="flex place-content-between items-center navSection relative">
-    <div class="grid w-8 h-12">
-        <span>DE</span>
-        <span>EN</span>
+<!-- OUR NAVIGATION BAR -->
+<section class="navSection fixed top-0 left-0 right-0 z-100 pt-12 md:pt-4 bg-transparent">
+    <div class="flex justify-between px-8">
+     
+        <div class="languageSelector fixed left-8 top-12 md:top-4 z-100">
+            <div class="grid w-8 h-12 md:text-[24px]">
+                <span>DE</span>
+                <span>EN</span>
+            </div>
+        </div>
+
+        <div class="fixed top-12 md:top-4 left-0 right-0 z-100 flex justify-center items-center px-8">
+            <div class="flex justify-start items-center w-full ">
+                <div class="flex justify-center items-center flex-1">
+                    <!-- Desktop logo -->
+                    <img src="/assets/images/LogoWeb.png" 
+                         alt="Desktop Logo"
+                         class="hidden md:block">
+                    <!-- Mobile logo -->
+                    <img src="/assets/images/LogoMobile.png" 
+                         alt="Mobile Logo"
+                         class="block md:hidden">
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- Hamburger Menu -->
+                    <div class="h-[25px] w-10 bg-black flex flex-col gap-1 items-center place-content-center navBar cursor-pointer sm:hidden relative z-110"
+                        style="clip-path: polygon(5% 10%, 75% 0%, 100% 50%, 90% 99%, 20% 91%, 0 50%);">
+                        <div class="w-[18px] h-0.5 bg-white upperBar relative transition-all"></div>
+                        <div class="w-[18px] h-0.5 bg-white middleBar relative"></div>
+                        <div class="w-[18px] h-0.5 bg-white lowerBar relative transition-all"></div>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <ul class="text-[24px] text-right hidden sm:grid">
+                        <li>About</li>
+                        <li>Services</li>
+                        <li>References</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <h1 class="text-[32px] w-[260px] h-[50px] text-[600] font-semibold text-center">Baumeister</h1>
-    <div class="h-[25px] w-10 bg-black  flex flex-col gap-1 items-center place-content-center navBar cursor-pointer sm:hidden"
-        style="clip-path: polygon(5% 10%, 75% 0%, 100% 50%, 90% 99%, 20% 91%, 0 50%);">
-        <div class="w-[18px] h-0.5 bg-white upperBar relative transition-all"></div>
-        <div class="w-[18px] h-0.5 bg-white middleBar relative"></div>
-        <div class="w-[18px] h-0.5 bg-white lowerBar relative transition-all"></div>
-    </div>
-    <ul class="text-[24px]  text-right sm:grid hidden">
-        <li>About</li>
-        <li>Services</li>
-        <li>References</li>
-        <li>Contact</li>
-    </ul>
-    <dialog class="navigations m-auto absolute p-4 top-24 border-0 outline-0 sm:hidden bg-transparent">
-        <ul class="text-[32px] text-[#00672e] font-semibold text-center">
+    
+    <!-- Mobile Navigation Dialog -->
+    <dialog class="navigations fixed left-0 right-0 top-[88px] w-full p-8 pt-12 border-0 outline-0 sm:hidden bg-transparent backdrop:bg-transparent z-90">
+        <ul class="text-[32px] text-[#00672e] font-semibold text-center space-y-10">
             <li>About</li>
             <li>Services</li>
             <li>References</li>
