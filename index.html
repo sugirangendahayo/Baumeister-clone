@@ -101,23 +101,14 @@
     }
   };
 
-  window.onload = function () {
-    loadComponents("header", "src/sections/navBar.html");
-    loadComponents("hero", "src/sections/hero.html");
-    loadComponents("description", "src/sections/description.html");
-    loadComponents(
-      "description-vector",
-      "src/sections/description-vector.html"
-    );
-    loadComponents(
-      "strategy",
-      "src/sections/strategy.html"
-    );
-    loadComponents(
-      "footer",
-      "src/sections/footer.html"
-    );
-  };
+ window.onload = function () {
+    loadComponents("header", "/sections/navBar.html");
+    loadComponents("hero", "/sections/hero.html");
+    loadComponents("description", "/sections/description.html");
+    loadComponents("description-vector", "/sections/description-vector.html");
+    loadComponents("strategy", "/sections/strategy.html");
+    loadComponents("collab-section", "/sections/collab-section.html");
+};
 </script>
 
 <body class="bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
@@ -128,8 +119,8 @@
   <div id="description"></div>
   <!--Vectors below Description section-->
   <div id="description-vector" class="sticky top-0"></div>
-  <div id="strategy" class="py-32" ></div>
-  <div id="footer" class="mx-8 pt-16"></div>
+  <div id="strategy" class="sticky top-0"></div>
+  <div id="collab-section"></div>
 </body>
 <script src="/src/main.js"></script>
 
