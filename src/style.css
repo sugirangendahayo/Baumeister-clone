@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 .greenBg{
   background: #00672E;
   clip-path: polygon(
@@ -11,3 +12,8 @@
     99.69% 15.65%
   );
 }
+
+.stickyBase { position: sticky; top: 0; }
+.shapeZLow { z-index: -2; }
+.shapeZHigh { z-index: 2; }
+.centerAbs { left: 0; right: 0; margin: auto; }
