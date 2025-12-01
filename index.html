@@ -13,92 +13,91 @@
   <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
   <title>Baumeister</title>
 </head>
-<script>
-  const loadComponents = (id, url) => {
-    if (document.readyState === "complete") {
-      fetch(url)
-        .then((response) => response.text())
-        .then((html) => {
-          let content = document.getElementById(id);
+  <script>
+    const loadComponents = (id, url) => {
+      if (document.readyState === "complete") {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            let content = document.getElementById(id);
 
-          content.innerHTML = html;
-          const myNavBar = content.querySelector(".navBar");
-          const dialog = content.querySelector(".navigations");
-          const upperBar = myNavBar.querySelector(".upperBar");
-          const middleBar = myNavBar.querySelector(".middleBar");
-          const lowerBar = myNavBar.querySelector(".lowerBar");
-          const languageSelector = content.querySelector(".languageSelector");
+            content.innerHTML = html;
+            const myNavBar = content.querySelector(".navBar");
+            const dialog = content.querySelector(".navigations");
+            const upperBar = myNavBar.querySelector(".upperBar");
+            const middleBar = myNavBar.querySelector(".middleBar");
+            const lowerBar = myNavBar.querySelector(".lowerBar");
+            const languageSelector = content.querySelector(".languageSelector");
 
-          myNavBar.addEventListener("click", function () {
-            const heroSection = document.getElementById("heroSection");
-            const heroText = document.getElementById("heroText");
-            const descriptionSection = document.getElementById("description");
-            const descriptionVectorSection =
-              document.getElementById("description-vector");
+            myNavBar.addEventListener("click", function () {
+              const heroSection = document.getElementById("heroSection");
+              const heroText = document.getElementById("heroText");
+              const descriptionSection = document.getElementById("description");
+              const descriptionVectorSection =
+                document.getElementById("description-vector");
 
-            if (dialog.open) {
-              dialog.close();
+                          if (dialog.open) {
+                dialog.close();
 
-              languageSelector.classList.add(
-                "fixed",
-                "left-8",
-                "top-12",
-                "md:top-4"
-              );
-              languageSelector.classList.remove("absolute");
+                languageSelector.classList.add(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.remove("absolute");
 
-              if (heroText) {
-                heroText.style.display = "block";
+                if (heroText) {
+                  heroText.style.display = "block";
+                }
+
+                if (descriptionSection) {
+                  descriptionSection.style.display = "block";
+                }
+                if (descriptionVectorSection) {
+                  descriptionVectorSection.style.display = "block";
+                }
+
+                if (window.innerWidth < 640 && heroSection) {
+                  heroSection.style.marginTop = "35vh";
+                }
+              } else {
+                dialog.show();
+
+                languageSelector.classList.remove(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.add("absolute");
+
+                if (heroText) {
+                  heroText.style.display = "none";
+                }
+
+                if (descriptionSection) {
+                  descriptionSection.style.display = "none";
+                }
+                if (descriptionVectorSection) {
+                  descriptionVectorSection.style.display = "none";
+                }
+
+                if (window.innerWidth < 640 && heroSection) {
+                  heroSection.style.marginTop = "65vh";
+                }
               }
 
-              if (descriptionSection) {
-                descriptionSection.style.display = "block";
-              }
-              if (descriptionVectorSection) {
-                descriptionVectorSection.style.display = "block";
-              }
-
-              if (window.innerWidth < 640 && heroSection) {
-                heroSection.style.marginTop = "35vh";
-              }
-            } else {
-              dialog.show();
-
-              languageSelector.classList.remove(
-                "fixed",
-                "left-8",
-                "top-12",
-                "md:top-4"
-              );
-              languageSelector.classList.add("absolute");
-
-              if (heroText) {
-                heroText.style.display = "none";
-              }
-
-              if (descriptionSection) {
-                descriptionSection.style.display = "none";
-              }
-              if (descriptionVectorSection) {
-                descriptionVectorSection.style.display = "none";
-              }
-
-              if (window.innerWidth < 640 && heroSection) {
-                heroSection.style.marginTop = "65vh";
-              }
-            }
-
-            upperBar.classList.toggle("transform");
-            upperBar.classList.toggle("rotate-45");
-            upperBar.classList.toggle("top-0.5");
-            lowerBar.classList.toggle("transform");
-            lowerBar.classList.toggle("-rotate-45");
-            lowerBar.classList.toggle("-top-1");
-            middleBar.classList.toggle("hidden");
+              upperBar.classList.toggle("transform");
+              upperBar.classList.toggle("rotate-45");
+              upperBar.classList.toggle("top-0.5");
+              lowerBar.classList.toggle("transform");
+              lowerBar.classList.toggle("-rotate-45");
+              lowerBar.classList.toggle("-top-1");
+              middleBar.classList.toggle("hidden");
+            });
           });
-        });
-    }
-  };
+
 
  window.onload = function () {
     loadComponents("header", "/sections/navBar.html");
@@ -110,6 +109,7 @@
 };
 </script>
 
+
 <body class="bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
   <div id="header"></div>
   <!--   Hero section -->
@@ -118,7 +118,7 @@
   <div id="description"></div>
   <!--Vectors below Description section-->
   <div id="description-vector" class="sticky top-0"></div>
-  <div id="strategy" class="sticky top-0"></div>
+  <div id="strategy"></div>
   <div id="collab-section"></div>
 </body>
 <script src="/src/main.js"></script>
