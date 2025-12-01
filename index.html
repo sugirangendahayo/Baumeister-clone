@@ -36,7 +36,7 @@
               const descriptionVectorSection =
                 document.getElementById("description-vector");
 
-              if (dialog.open) {
+                          if (dialog.open) {
                 dialog.close();
 
                 languageSelector.classList.add(
@@ -97,20 +97,18 @@
               middleBar.classList.toggle("hidden");
             });
           });
-      }
-    };
 
-    window.onload = function () {
-      loadComponents("header", "/sections/navBar.html");
-      loadComponents("hero", "/sections/hero.html");
-      loadComponents("description", "/sections/description.html");
-      loadComponents(
-        "description-vector",
-        "/sections/description-vector.html"
-      );
-      loadComponents("strategy", "/sections/strategy.html")
-    };
-  </script>
+
+ window.onload = function () {
+    loadComponents("header", "/sections/navBar.html");
+    loadComponents("hero", "/sections/hero.html");
+    loadComponents("description", "/sections/description.html");
+    loadComponents("description-vector", "/sections/description-vector.html");
+    loadComponents("strategy", "/sections/strategy.html");
+    loadComponents("collab-section", "/sections/collab-section.html");
+};
+</script>
+
 
 <body class="bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
   <div id="header"></div>
@@ -120,7 +118,8 @@
   <div id="description"></div>
   <!--Vectors below Description section-->
   <div id="description-vector" class="sticky top-0"></div>
-  <div id="strategy" class="sticky top-0"></div>
+  <div id="strategy"></div>
+  <div id="collab-section"></div>
 </body>
 <script src="/src/main.js"></script>
 
