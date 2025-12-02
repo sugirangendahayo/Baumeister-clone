@@ -1,95 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/style.css" />
-    <script
-      src="https://kit.fontawesome.com/53a1123324.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Baumeister</title>
-  </head>
-  <script>
-    const loadComponents = (id, url) => {
-      if (document.readyState === "complete") {
-        fetch(url)
-          .then((response) => response.text())
-          .then((html) => {
-            let content = document.getElementById(id);
 
-            content.innerHTML = html;
-            const myNavBar = content.querySelector(".navBar");
-            const dialog = content.querySelector(".navigations");
-            const upperBar = myNavBar.querySelector(".upperBar");
-            const middleBar = myNavBar.querySelector(".middleBar");
-            const lowerBar = myNavBar.querySelector(".lowerBar");
-            const languageSelector = content.querySelector(".languageSelector");
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
+  <title>Baumeister</title>
+</head>
+<script>
+  const loadComponents = (id, url) => {
+    if (document.readyState === "complete") {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
 
-            myNavBar.addEventListener("click", function () {
-              const heroSection = document.getElementById("heroSection");
-              const heroText = document.getElementById("heroText");
-              const descriptionSection = document.getElementById("description");
-              const descriptionVectorSection =
-                document.getElementById("description-vector");
+          let content = document.getElementById(id);
+          content.innerHTML = html;
+          const myNavBar = content.querySelector(".navBar");
+          const dialog = content.querySelector(".navigations");
+          const upperBar = myNavBar.querySelector(".upperBar");
+          const middleBar = myNavBar.querySelector(".middleBar");
+          const lowerBar = myNavBar.querySelector(".lowerBar");
+          const languageSelector = content.querySelector(".languageSelector");
+          const strategySection = document.getElementById("strategy");
+          const collabSection = document.getElementById("collab-section");
 
-              if (dialog.open) {
-                dialog.close();
+          myNavBar.addEventListener("click", function () {
 
-                languageSelector.classList.add(
-                  "fixed",
-                  "left-8",
-                  "top-12",
-                  "md:top-4"
-                );
-                languageSelector.classList.remove("absolute");
+            const heroSection = document.getElementById("hero");
+            const heroText = document.getElementById("heroText");
+            const descriptionSection = document.getElementById("description");
+            const descriptionVectorSection = document.getElementById("description-vector");
 
-                if (heroText) {
-                  heroText.style.display = "block";
-                }
 
-                if (descriptionSection) {
-                  descriptionSection.style.display = "block";
-                }
-                if (descriptionVectorSection) {
-                  descriptionVectorSection.style.display = "block";
-                }
-
-                if (window.innerWidth < 640 && heroSection) {
-                  heroSection.style.marginTop = "35vh";
-                }
-              } else {
-                dialog.show();
-
-                languageSelector.classList.remove(
-                  "fixed",
-                  "left-8",
-                  "top-12",
-                  "md:top-4"
-                );
-                languageSelector.classList.add("absolute");
-
-                if (heroText) {
-                  heroText.style.display = "none";
-                }
-
-                if (descriptionSection) {
-                  descriptionSection.style.display = "none";
-                }
-                if (descriptionVectorSection) {
-                  descriptionVectorSection.style.display = "none";
-                }
-
-                if (window.innerWidth < 640 && heroSection) {
-                  heroSection.style.marginTop = "65vh";
-                }
-              }
+            if (dialog.open) {
+              dialog.close();
 
               upperBar.classList.toggle("transform");
               upperBar.classList.toggle("rotate-45");
@@ -98,34 +49,80 @@
               lowerBar.classList.toggle("-rotate-45");
               lowerBar.classList.toggle("-top-1");
               middleBar.classList.toggle("hidden");
-            });
+
+              languageSelector.classList.add("fixed", "left-8", "top-12", "md:top-4");
+              languageSelector.classList.remove("absolute");
+              heroText.style.display = "block";
+              descriptionSection.style.display = "block";
+              descriptionVectorSection.style.display = "block";
+              strategySection.style.display = "block";
+              collabSection.style.display = "block";
+              heroSection.style.marginTop = "35vh";
+              heroSection.classList.remove("transform")
+              heroSection.classList.remove("translate-y-44")
+              // heroSection.scroll = 
+            }
+            else {
+              dialog.show();
+
+              upperBar.classList.toggle("transform");
+              upperBar.classList.toggle("rotate-45");
+              upperBar.classList.toggle("top-0.5");
+              lowerBar.classList.toggle("transform");
+              lowerBar.classList.toggle("-rotate-45");
+              lowerBar.classList.toggle("-top-1");
+              middleBar.classList.toggle("hidden");
+
+              languageSelector.classList.remove("fixed", "left-8", "top-12", "md:top-4");
+              languageSelector.classList.add("absolute");
+              heroText.style.display = "none";
+              descriptionSection.style.display = "none";
+              descriptionVectorSection.style.display = "none";
+              collabSection.style.display = "none";
+              strategySection.style.display = "none";
+              heroSection.classList.add("transform")
+              heroSection.classList.add("translate-y-44")
+              currentLocation = window.crollY
+              window.scrollTo(0, 0);
+              document.classList.add("transition-all");
+              dialog.getElementById("links").addEventListener("click", function () {
+                heroText.style.display = "block";
+                descriptionSection.style.display = "block";
+                descriptionVectorSection.style.display = "block";
+                strategySection.style.display = "block";
+              })
+            }
+
+
           });
+        });
 
-        }
-      };
-      window.onload = function () {
-        loadComponents("header", "/sections/navBar.html");
-        loadComponents("hero", "/sections/hero.html");
-        loadComponents("description", "/sections/description.html");
-        loadComponents(
-          "description-vector",
-          "/sections/description-vector.html"
-        );
-        loadComponents("strategy", "/sections/strategy.html");
-        loadComponents("collab-section", "/sections/collab-section.html");
-      };
-  </script>
+    }
+  };
+  window.onload = function () {
+    loadComponents("header", "/sections/navBar.html");
+    loadComponents("hero", "/sections/hero.html");
+    loadComponents("description", "/sections/description.html");
+    loadComponents(
+      "description-vector",
+      "/sections/description-vector.html"
+    );
+    loadComponents("strategy", "/sections/strategy.html");
+    loadComponents("collab-section", "/sections/collab-section.html");
+  };
+</script>
 
-  <body class="bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
-    <div id="header"></div>
-    <!--   Hero section -->
-    <div id="hero"></div>
-    <!--Description section-->
-    <div id="description"></div>
-    <!--Vectors below Description section-->
-    <div id="description-vector" class="sticky top-0"></div>
-    <div id="strategy" class="mx-8 sm:mx-24"></div>
-    <div id="collab-section"></div>
-  </body>
-  <script src="/src/main.js"></script>
+<body class="bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
+  <div id="header"></div>
+  <!--   Hero section -->
+  <div id="hero"></div>
+  <!--Description section-->
+  <div id="description"></div>
+  <!--Vectors below Description section-->
+  <div id="description-vector" class="sticky top-0"></div>
+  <div id="strategy" class="mx-8 sm:mx-24"></div>
+  <div id="collab-section"></div>
+</body>
+<script src="/src/main.js"></script>
+
 </html>
