@@ -42,13 +42,13 @@
             if (dialog.open) {
               dialog.close();
 
-              upperBar.classList.toggle("transform");
-              upperBar.classList.toggle("rotate-45");
-              upperBar.classList.toggle("top-0.5");
-              lowerBar.classList.toggle("transform");
-              lowerBar.classList.toggle("-rotate-45");
-              lowerBar.classList.toggle("-top-1");
-              middleBar.classList.toggle("hidden");
+              upperBar.classList.remove("transform");
+              upperBar.classList.remove("rotate-45");
+              upperBar.classList.remove("top-0.5");
+              lowerBar.classList.remove("transform");
+              lowerBar.classList.remove("-rotate-45");
+              lowerBar.classList.remove("-top-1");
+              middleBar.classList.remove("hidden");
 
               languageSelector.classList.add("fixed", "left-8", "top-12", "md:top-4");
               languageSelector.classList.remove("absolute");
@@ -60,18 +60,40 @@
               heroSection.style.marginTop = "35vh";
               heroSection.classList.remove("transform")
               heroSection.classList.remove("translate-y-44")
+
               // heroSection.scroll = 
             }
             else {
               dialog.show();
 
-              upperBar.classList.toggle("transform");
-              upperBar.classList.toggle("rotate-45");
-              upperBar.classList.toggle("top-0.5");
-              lowerBar.classList.toggle("transform");
-              lowerBar.classList.toggle("-rotate-45");
-              lowerBar.classList.toggle("-top-1");
-              middleBar.classList.toggle("hidden");
+              dialog.addEventListener("click", function (e) {
+                if (e.target) {
+                  heroText.style.display = "block";
+                  descriptionSection.style.display = "block";
+                  descriptionVectorSection.style.display = "block";
+                  strategySection.style.display = "block";
+                  collabSection.style.display = "block";
+
+                  upperBar.classList.remove("transform");
+                  upperBar.classList.remove("rotate-45");
+                  upperBar.classList.remove("top-0.5");
+                  lowerBar.classList.remove("transform");
+                  lowerBar.classList.remove("-rotate-45");
+                  lowerBar.classList.remove("-top-1");
+                  middleBar.classList.remove("hidden");
+                }
+
+              })
+
+
+
+              upperBar.classList.add("transform");
+              upperBar.classList.add("rotate-45");
+              upperBar.classList.add("top-0.5");
+              lowerBar.classList.add("transform");
+              lowerBar.classList.add("-rotate-45");
+              lowerBar.classList.add("-top-1");
+              middleBar.classList.add("hidden");
 
               languageSelector.classList.remove("fixed", "left-8", "top-12", "md:top-4");
               languageSelector.classList.add("absolute");
@@ -85,12 +107,6 @@
               currentLocation = window.crollY
               window.scrollTo(0, 0);
               document.classList.add("transition-all");
-              dialog.getElementById("links").addEventListener("click", function () {
-                heroText.style.display = "block";
-                descriptionSection.style.display = "block";
-                descriptionVectorSection.style.display = "block";
-                strategySection.style.display = "block";
-              })
             }
 
 
