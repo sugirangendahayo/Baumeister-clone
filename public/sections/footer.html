@@ -1,37 +1,41 @@
-<img src="public/assets/images/redVector.png" alt="redvector" class="m-auto mb-66 sm:mb-24 sm:w-[670px] w-[331px] z-100 md:sticky">
-<section class="grid md:flex place-content-between lg:hidden mt-[100px] md:items-center gap-16 text-[15px]">
-    <h1>
-        Agentur Baumeister <br>
-        Böckhstraße 13 <br>
-        10967 Berlin
-    </h1>
-    <h1 class="text-left my-8"><u>hallo@agentur-baumeister.com</u> <br>
-        +49 (0)30 - 490 827 87
-    </h1>
-</section>
-<section class="flex md:flex-row-reverse lg:flex-row place-content-between lg:text-[24px] text-[15px]" >
-    <h1 class="hidden lg:flex">
-        Agentur Baumeister <br>
-        Böckhstraße 13 <br>
-        10967 Berlin
-    </h1>
-    <h1 class="hidden lg:block"><u>hallo@agentur-baumeister.com</u> <br>
-        +49 (0)30 - 490 827 87
-    </h1>
-    <h1 class="block lg:hidden">
-        Datenschutz
-    </h1>
-    <h1 class="block lg:hidden">
-        Impressum
-    </h1>
-    <h1>
-        LinkedIn
-    </h1>
-    <h1>
-        Instagram
-    </h1>
-    <h1 class="hidden lg:block">
-        Impressum <br>
-        Datenschutz
-    </h1>
-</section>
+<div class="bg-primary-bg font-outfit p-5 lg:pt-20 md:pt-65 ">
+  <!-- Red vector: hidden on mobile by default, shown on md+ screens, but hidden on contact page -->
+  <div class="hidden md:flex home-page-show-vector justify-center contact-page-hide-vector mt-[55%]  ">
+
+    <img
+      src="/assets/images/redVector.png"
+      alt="red shape"
+      class="md:h-[39%] md:w-[66%] lg:h-[38%] lg:w-[58%] h-[59%] w-[94%] sticky top-20"
+    />
+  </div>
+
+  <div
+    class="flex flex-col lg:flex-row lg:justify-between lg:gap-0 gap-10 font-medium lg:text-[24px] md:text-[16px] text-[15px] lg:mt-35 md:mt-15 mt-[50%] pl-5 md:ml-0"
+  >
+    <div
+      class="flex md:flex-row md:justify-between flex-col lg:gap-0 lg:gap-x-20 gap-10"
+    >
+      <ul>
+        <li>Agentur Baumeister</li>
+        <li>Böckhstraße 13</li>
+        <li>10967 Berlin</li>
+      </ul>
+      <ul class="md:text-right">
+        <li class="underline">hallo@agentur-baumeister.com</li>
+        <li>+49 (0)30 - 490 827 87</li>
+      </ul>
+    </div>
+
+    <ul class="flex md:flex-row-reverse justify-between lg:gap-0 lg:gap-x-0 mt-10 md:mt-0">
+      <li class="block lg:hidden"><a href="#">Datenschutz</a></li>
+      <li class="lg:text-right">
+        Impressum <br />
+        <span class="hidden md:hidden lg:block"
+          ><a href="#">Datenschutz</a></span
+        >
+      </li>
+      <li class="order-2 md:order-0 lg:order-0">Instagram</li>
+      <li class="order-1 md:order-0 lg:order-0">LinkedIn</li>
+    </ul>
+  </div>
+</div>
