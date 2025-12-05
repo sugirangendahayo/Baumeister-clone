@@ -17,3 +17,12 @@
 .shapeZLow { z-index: -2; }
 .shapeZHigh { z-index: 2; }
 .centerAbs { left: 0; right: 0; margin: auto; }
+
+
+body.home-page .home-page-show-vector {
+  display: flex !important;
+}
+
+body.contact-page .contact-page-hide-vector {
+  display: none !important;
+}
