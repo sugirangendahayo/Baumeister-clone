@@ -1,52 +1,83 @@
 <!-- OUR NAVIGATION BAR -->
-<section class="navSection relative top-0 left-0 right-0 z-150 pt-12 md:pt-4 bg-transparent">
-    <div class="flex justify-between px-8">
-
-        <div class="languageSelector fixed left-8 top-12 md:top-4 z-100">
-            <div class="grid w-8 h-12 md:text-[24px]">
-                <span>DE</span>
-                <span>EN</span>
-            </div>
-        </div>
-
-        <div class="fixed top-12 md:top-4 left-0 right-0 z-100 flex justify-center items-center px-8">
-            <div class="flex justify-start items-center w-full">
-                <div class="flex justify-center items-center flex-1">
-                    <!-- Desktop logo -->
-                    <h1 class="text-[50px] font-semibold ml-[15%] hidden md:block">Baumeister</h1>
-                    <!-- Mobile logo -->
-                    <img src="/assets/images/LogoMobile.png" alt="Mobile Logo" class="block md:hidden">
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <!-- Hamburger Menu -->
-                    <div class="h-[25px] w-10 bg-black flex flex-col gap-1 items-center place-content-center navBar cursor-pointer lg:hidden relative z-110"
-                        style="clip-path: polygon(5% 10%, 75% 0%, 100% 50%, 90% 99%, 20% 91%, 0 50%);">
-                        <div class="w-[18px] h-0.5 bg-white upperBar relative transition-all"></div>
-                        <div class="w-[18px] h-0.5 bg-white middleBar relative"></div>
-                        <div class="w-[18px] h-0.5 bg-white lowerBar relative transition-all"></div>
-                    </div>
-
-                    <!-- Desktop Navigation (exact same layout) -->
-                    <ul class="text-[24px] text-right hidden lg:grid ">
-                        <a class="cursor-pointer" href="#description">About</a>
-                        <a class="cursor-pointer" href="#strategy">Services</a>
-                        <a class="cursor-pointer" href="#collab-section">References</a>
-                        <a class="cursor-pointer" href="/contact.html">Contact</a>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<section
+  class="navSection relative top-0 left-0 right-0 z-150 pt-12 md:pt-4 bg-transparent"
+>
+  <div class="flex justify-between px-8">
+    <div class="languageSelector fixed left-8 top-12 md:top-4 z-100">
+      <div class="grid w-8 h-12 md:text-[24px]">
+        <span>DE</span>
+        <span>EN</span>
+      </div>
     </div>
 
-    <!-- Mobile / iPad Navigation Dialog -->
-    <dialog
-        class="navigations left-0 right-0 top-[150px] w-full p-8 pt-12 outline-0 lg:hidden bg-transparent backdrop:bg-transparent z-99">
-        <ul class="text-[32px] md:text-[48px] text-[#00672e] font-semibold text-center space-y-10 sm:space-y-5 grid" id="links">
-            <a class="cursor-pointer outline-0" href="#description">About</a>
-            <a class="cursor-pointer outline-0" href="#strategy">Services</a>
+    <div
+      class="fixed top-12 md:top-4 left-0 right-0 z-100 flex justify-center items-center px-8"
+    >
+      <div class="flex justify-start items-center w-full">
+        <div class="flex justify-center items-center flex-1">
+          <!-- Desktop logo -->
+          <a href="./">
+            <h1 class="text-[50px] font-semibold ml-[15%] hidden md:block">
+              Baumeister
+            </h1>
+          </a>
+          <!-- Mobile logo -->
+          <img
+            src="/assets/images/LogoMobile.png"
+            alt="Mobile Logo"
+            class="block md:hidden"
+          />
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Hamburger Menu -->
+          <div
+            class="h-[25px] w-10 bg-black flex flex-col gap-1 items-center place-content-center navBar cursor-pointer lg:hidden relative z-110"
+            style="
+              clip-path: polygon(
+                5% 10%,
+                75% 0%,
+                100% 50%,
+                90% 99%,
+                20% 91%,
+                0 50%
+              );
+            "
+          >
+            <div
+              class="w-[18px] h-0.5 bg-white upperBar relative transition-all"
+            ></div>
+            <div class="w-[18px] h-0.5 bg-white middleBar relative"></div>
+            <div
+              class="w-[18px] h-0.5 bg-white lowerBar relative transition-all"
+            ></div>
+          </div>
+
+          <!-- Desktop Navigation (exact same layout) -->
+          <ul class="text-[24px] text-right hidden lg:grid">
+            <a class="cursor-pointer" href="#description">About</a>
+            <a class="cursor-pointer" href="#strategy">Services</a>
             <a class="cursor-pointer" href="#collab-section">References</a>
-            <a class="cursor-pointer" href="/public/sections/contact.html">Contact</a>
-        </ul>
-    </dialog>
+            <a class="cursor-pointer" href="/contact.html">Contact</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile / iPad Navigation Dialog -->
+  <dialog
+    class="navigations left-0 right-0 top-[150px] w-full p-8 pt-12 outline-0 lg:hidden bg-transparent backdrop:bg-transparent z-99"
+  >
+    <ul
+      class="text-[32px] md:text-[48px] text-[#00672e] font-semibold text-center space-y-10 sm:space-y-5 grid"
+      id="links"
+    >
+      <a class="cursor-pointer outline-0" href="#description">About</a>
+      <a class="cursor-pointer outline-0" href="#strategy">Services</a>
+      <a class="cursor-pointer" href="#collab-section">References</a>
+      <a class="cursor-pointer" href="/public/sections/contact.html">Contact</a>
+    </ul>
+  </dialog>
 </section>
+
