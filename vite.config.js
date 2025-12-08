@@ -1,4 +1,5 @@
-import { defineConfig, resolveConfig } from "vite";
+import { defineConfig } from "vite";
+import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
@@ -6,9 +7,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolveConfig(__dirname, "index.html"),
-        contact: resolveConfig(__dirname, "contact.html"),
-        privacy: resolveConfig(__dirname, "privacy.html"),
+        main: path.resolve(__dirname, "index.html"),
+        contact: path.resolve(__dirname, "contact.html"),
+        privacy: path.resolve(__dirname, "privacy.html"),
       },
     },
   },
