@@ -1,159 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/style.css" />
-    <script
-      src="https://kit.fontawesome.com/53a1123324.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Baumeister -- Imprint</title>
-    <style>
-      .custom-green {
-        color: #006b3f;
-      }
 
-      .bg-custom-beige {
-        background-color: #efecea;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
+  <title>Baumeister -- Imprint</title>
+  <style>
+    .custom-green {
+      color: #006b3f;
+    }
 
-      .custom-red {
-        background-color: #e63946;
-      }
-    </style>
-  </head>
+    .bg-custom-beige {
+      background-color: #efecea;
+    }
 
-  <script>
-    const loadComponents = (id, url) => {
-      if (document.readyState === "complete") {
-        fetch(url)
-          .then((response) => response.text())
-          .then((html) => {
-            let content = document.getElementById(id);
+    .custom-red {
+      background-color: #e63946;
+    }
+  </style>
+</head>
 
-            content.innerHTML = html;
-            
-            // Only run navbar-specific code if this is the header component
-            if (id === "header") {
-              const myNavBar = content.querySelector(".navBar");
-              const dialog = content.querySelector(".navigations");
-              const upperBar = myNavBar.querySelector(".upperBar");
-              const middleBar = myNavBar.querySelector(".middleBar");
-              const lowerBar = myNavBar.querySelector(".lowerBar");
-              const languageSelector = content.querySelector(".languageSelector");
+<script>
+  const loadComponents = (id, url) => {
+    if (document.readyState === "complete") {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          let content = document.getElementById(id);
 
-              myNavBar.addEventListener("click", function () {
-                const mainContent = document.getElementById("mainContent");
+          content.innerHTML = html;
 
-                if (dialog.open) {
-                  dialog.close();
+          // Only run navbar-specific code if this is the header component
+          if (id === "header") {
+            const myNavBar = content.querySelector(".navBar");
+            const dialog = content.querySelector(".navigations");
+            const upperBar = myNavBar.querySelector(".upperBar");
+            const middleBar = myNavBar.querySelector(".middleBar");
+            const lowerBar = myNavBar.querySelector(".lowerBar");
+            const languageSelector = content.querySelector(".languageSelector");
 
-                  languageSelector.classList.add(
-                    "fixed",
-                    "left-8",
-                    "top-12",
-                    "md:top-4"
-                  );
-                  languageSelector.classList.remove("absolute");
+            myNavBar.addEventListener("click", function () {
+              const mainContent = document.getElementById("mainContent");
 
-                  if (mainContent) {
-                    mainContent.style.display = "block";
-                  }
-                } else {
-                  dialog.show();
+              if (dialog.open) {
+                dialog.close();
 
-                  languageSelector.classList.remove(
-                    "fixed",
-                    "left-8",
-                    "top-12",
-                    "md:top-4"
-                  );
-                  languageSelector.classList.add("absolute");
+                languageSelector.classList.add(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.remove("absolute");
 
-                  if (mainContent) {
-                    mainContent.style.display = "none";
-                  }
+                if (mainContent) {
+                  mainContent.style.display = "block";
+                  footer.classList.remove("hidden")
                 }
+              } else {
+                dialog.show();
 
-                upperBar.classList.toggle("transform");
-                upperBar.classList.toggle("rotate-45");
-                upperBar.classList.toggle("top-0.5");
-                lowerBar.classList.toggle("transform");
-                lowerBar.classList.toggle("-rotate-45");
-                lowerBar.classList.toggle("-top-1");
-                middleBar.classList.toggle("hidden");
-              });
-            }
-          });
-      }
-    };
+                languageSelector.classList.remove(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.add("absolute");
 
-    window.onload = function () {
-      loadComponents("header", "/sections/navBar.html");
-      loadComponents("footer", "/sections/footer.html");
-    };
-  </script>
+                if (mainContent) {
+                  mainContent.style.display = "none";
+                  footer.classList.add("hidden");
 
-  <body class=" bg-custom-beige overflow-x-hidden text-[#006b3f]" style="font-family: Outfit">
-    <div id="header"></div>
 
-    <!-- Main Content -->
-    <section
-      id="mainContent"
-      class="container mx-auto max-w-6xl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-2 gap-20 content-end items-end pb-16 pt-36 md:pt-52 lg:px-6 md:px-12 px-10"
-    >
-      <div class="text-primary-green lg:col-span-2">
-        <h4 class="font-bold text-xl md:pb-1 pb-4">IMPRINT</h4>
-        <ul
-          class="lg:text-5xl md:text-[32px] text-2xl mb-8 lg:leading-14 md:leading-11"
-        >
-          <li class="font-bold">Agentur Baumeister</li>
-          <li class="font-normal">Katrein Baumeister</li>
-          <li class="font-normal">Böckhstraße 13</li>
-          <li class="font-normal">10967 Berlin</li>
-        </ul>
-        <div
-          class="lg:text-5xl md:text-[32px] text-2xl font-normal mb-8 lg:leading-14 md:leading-11"
-        >
-          <p>+49 (0)30 - 490 827 87</p>
-          <p>hallo@agentur-baumeister.com</p>
-        </div>
-        <div
-          class="lg:text-5xl md:text-[32px] text-2xl mb-8 lg:leading-14 md:leading-11"
-        >
-          <p class="font-bold">UST-IDNR.</p>
-          <p>DE 274 486 923</p>
-        </div>
-        <div
-          class="lg:text-5xl md:text-[32px] text-2xl lg:leading-14 md:leading-11"
-        >
-          <p class="font-bold">REGISTERED OFFICE</p>
-          <p>Berlin, Deutschland</p>
-        </div>
+                }
+              }
+
+              upperBar.classList.toggle("transform");
+              upperBar.classList.toggle("rotate-45");
+              upperBar.classList.toggle("top-0.5");
+              lowerBar.classList.toggle("transform");
+              lowerBar.classList.toggle("-rotate-45");
+              lowerBar.classList.toggle("-top-1");
+              middleBar.classList.toggle("hidden");
+              hero.classList.toggle("hidden");
+            });
+            
+          }
+        });
+    }
+  };
+
+  window.onload = function () {
+    loadComponents("header", "/sections/navBar.html");
+    loadComponents("footer", "/sections/footer.html");
+    loadComponents("hero", "/sections/hero-vector.html");
+
+  };
+</script>
+
+<body class=" bg-custom-beige overflow-x-hidden text-[#006b3f]" style="font-family: Outfit">
+  <div id="header"></div>
+
+  <!-- Main Content -->
+  <section id="mainContent"
+    class="container mx-auto max-w-6xl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-2 gap-20 content-end items-end pb-16 pt-36 md:pt-52 lg:px-6 md:px-12 px-10">
+    <div class="text-primary-green lg:col-span-2">
+      <h4 class="font-bold text-xl md:pb-1 pb-4">IMPRINT</h4>
+      <ul class="lg:text-5xl md:text-[32px] text-2xl mb-8 lg:leading-14 md:leading-11">
+        <li class="font-bold">Agentur Baumeister</li>
+        <li class="font-normal">Katrein Baumeister</li>
+        <li class="font-normal">Böckhstraße 13</li>
+        <li class="font-normal">10967 Berlin</li>
+      </ul>
+      <div class="lg:text-5xl md:text-[32px] text-2xl font-normal mb-8 lg:leading-14 md:leading-11">
+        <p>+49 (0)30 - 490 827 87</p>
+        <p>hallo@agentur-baumeister.com</p>
       </div>
-      <div
-        class="md:text-right lg:text-2xl md:text-[20px] text-2xl text-primary-green"
-      >
-        <h3 class="font-semibold pb-6">DISCLAIMER</h3>
-        <p>
-          Despite all due care, no liability can be accepted for the accuracy,
-          completeness and up to-dateness of the information provided. The same
-          applies to third-party websites to which www.agentur-baumeister.com
-          refers by means of hyperlinks. Katrein Baumeister, Agentur Baumeister
-          accepts no liability for the content of these websites.
-        </p>
+      <div class="lg:text-5xl md:text-[32px] text-2xl mb-8 lg:leading-14 md:leading-11">
+        <p class="font-bold">UST-IDNR.</p>
+        <p>DE 274 486 923</p>
       </div>
-    </section>
+      <div class="lg:text-5xl md:text-[32px] text-2xl lg:leading-14 md:leading-11">
+        <p class="font-bold">REGISTERED OFFICE</p>
+        <p>Berlin, Deutschland</p>
+      </div>
+    </div>
+    <div class="md:text-right lg:text-2xl md:text-[20px] text-2xl text-primary-green">
+      <h3 class="font-semibold pb-6">DISCLAIMER</h3>
+      <p>
+        Despite all due care, no liability can be accepted for the accuracy,
+        completeness and up to-dateness of the information provided. The same
+        applies to third-party websites to which www.agentur-baumeister.com
+        refers by means of hyperlinks. Katrein Baumeister, Agentur Baumeister
+        accepts no liability for the content of these websites.
+      </p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <div id="footer"></div>
-  </body>
-  <script src="/src/main.js"></script>
+  <!-- Footer -->
+  <div id="footer"></div>
+  <div id="hero" class="hidden"></div>
+</body>
+<script src="/src/main.js"></script>
+
 </html>
