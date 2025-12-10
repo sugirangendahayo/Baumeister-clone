@@ -45,6 +45,7 @@
                         const middleBar = myNavBar.querySelector(".middleBar");
                         const lowerBar = myNavBar.querySelector(".lowerBar");
                         const languageSelector = content.querySelector(".languageSelector");
+                        const footer = document.getElementById("footer")
 
                         myNavBar.addEventListener("click", function () {
                             const mainContent = document.getElementById("mainContent");
@@ -62,6 +63,7 @@
 
                                 if (mainContent) {
                                     mainContent.style.display = "block";
+                                    footer.style.display = "block"
                                 }
                             } else {
                                 dialog.show();
@@ -76,6 +78,7 @@
 
                                 if (mainContent) {
                                     mainContent.style.display = "none";
+                                    footer.style.display = "none";
                                 }
                             }
 
@@ -95,12 +98,15 @@
     window.onload = function () {
         loadComponents("header", "/sections/navBar.html");
         loadComponents("footer", "/sections/footer.html");
+        loadComponents("hero", "/sections/hero-vector.html");
     };
 </script>
 
 <body class="custom-green font-medium bg-[#EFECEA]" style="font-family: Outfit">
     <section id="header" class="text-"></section>
-    <section class="text-[#00672E] text-left sm:text-[24px] mx-8 list-disc flex flex-col gap-4 pb-64 py-32 px-4 sm:px-16">
+    <section
+    id="mainContent"
+        class="text-[#00672E] text-left sm:text-[24px] mx-8 list-disc flex flex-col gap-4 pb-64 py-32 px-4 sm:px-16">
         <h1 class="font-bold">DATA PRIVACY</h1>
         <h1>PRIVACY POLICY</h1>
         <p>
@@ -676,6 +682,7 @@
         </p>
     </section>
     <section id="footer"></section>
+    <section id="hero"></section>
 </body>
 
 </html>
