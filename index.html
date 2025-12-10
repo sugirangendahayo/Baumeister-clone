@@ -13,8 +13,11 @@
   <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
   <title>Baumeister</title>
 </head>
-<script>
-  const loadComponents   = (id, url) => {
+<script type="module">
+  import i18next from "i18next";
+  import deTranslation from "./DE.json";
+  import enTranslation from "./EN.json";
+  const loadComponents = (id, url) => {
     if (document.readyState === "complete") {
       fetch(url)
         .then((response) => response.text())
@@ -30,6 +33,29 @@
           const languageSelector = content.querySelector(".languageSelector");
           const strategySection = document.getElementById("strategy");
           const collabSection = document.getElementById("collab-section");
+
+          // LANGUAGE SWITCH
+          const setToEnglish = content.querySelector("#set_to_english");
+          const setToDutch = content.querySelector("#set_to_dutch");
+
+          const translatePageOnDom = (lang = "english") => {//for translating every element with the data-i18n
+            // alert("Translating page to " + lang)
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+              const key = el.getAttribute("data-i18n");
+              el.textContent = lang === "english" ? enTranslation[key] : deTranslation[key];
+            })
+          }
+
+          setToDutch.addEventListener("click", async () => {
+            setToDutch.classList.toggle("opacity-50");
+            setToEnglish.classList.toggle("opacity-50")
+            translatePageOnDom("dutch");
+          })
+          setToEnglish.addEventListener("click", async () => {
+            setToDutch.classList.toggle("opacity-50");
+            setToEnglish.classList.toggle("opacity-50")
+            translatePageOnDom("english");
+          })
 
           myNavBar.addEventListener("click", function () {
 

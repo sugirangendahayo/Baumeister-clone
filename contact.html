@@ -27,7 +27,10 @@
   </style>
 </head>
 
-<script>
+<script type="module">
+  import i18next from "i18next";
+  import deTranslation from "./DE.json";
+  import enTranslation from "./EN.json";
   const loadComponents = (id, url) => {
     if (document.readyState === "complete") {
       fetch(url)
@@ -45,6 +48,29 @@
             const middleBar = myNavBar.querySelector(".middleBar");
             const lowerBar = myNavBar.querySelector(".lowerBar");
             const languageSelector = content.querySelector(".languageSelector");
+
+            // LANGUAGE SWITCH
+            const setToEnglish = content.querySelector("#set_to_english");
+            const setToDutch = content.querySelector("#set_to_dutch");
+
+            const translatePageOnDom = (lang = "english") => {//for translating every element with the data-i18n
+              // alert("Translating page to " + lang)
+              document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                el.textContent = lang === "english" ? enTranslation[key] : deTranslation[key];
+              })
+            }
+
+            setToDutch.addEventListener("click", async () => {
+              setToDutch.classList.toggle("opacity-50");
+              setToEnglish.classList.toggle("opacity-50")
+              translatePageOnDom("dutch");
+            })
+            setToEnglish.addEventListener("click", async () => {
+              setToDutch.classList.toggle("opacity-50");
+              setToEnglish.classList.toggle("opacity-50")
+              translatePageOnDom("english");
+            })
 
             myNavBar.addEventListener("click", function () {
               const mainContent = document.getElementById("mainContent");
@@ -92,7 +118,7 @@
               middleBar.classList.toggle("hidden");
               hero.classList.toggle("hidden");
             });
-            
+
           }
         });
     }
@@ -134,8 +160,8 @@
       </div>
     </div>
     <div class="md:text-right lg:text-2xl md:text-[20px] text-2xl text-primary-green">
-      <h3 class="font-semibold pb-6">DISCLAIMER</h3>
-      <p>
+      <h3 class="font-semibold pb-6" data-i18n="disclaimer">DISCLAIMER</h3>
+      <p data-i18n="dispite_all_due">
         Despite all due care, no liability can be accepted for the accuracy,
         completeness and up to-dateness of the information provided. The same
         applies to third-party websites to which www.agentur-baumeister.com

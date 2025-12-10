@@ -27,7 +27,10 @@
     </style>
 </head>
 
-<script>
+<script type="module">
+    import i18next from "i18next";
+    import deTranslation from "./DE.json";
+    import enTranslation from "./EN.json";
     const loadComponents = (id, url) => {
         if (document.readyState === "complete") {
             fetch(url)
@@ -46,6 +49,30 @@
                         const lowerBar = myNavBar.querySelector(".lowerBar");
                         const languageSelector = content.querySelector(".languageSelector");
                         const footer = document.getElementById("footer")
+
+
+                        // LANGUAGE SWITCH
+                        const setToEnglish = content.querySelector("#set_to_english");
+                        const setToDutch = content.querySelector("#set_to_dutch");
+
+                        const translatePageOnDom = (lang = "english") => {//for translating every element with the data-i18n
+                            // alert("Translating page to " + lang)
+                            document.querySelectorAll("[data-i18n]").forEach(el => {
+                                const key = el.getAttribute("data-i18n");
+                                el.textContent = lang === "english" ? enTranslation[key] : deTranslation[key];
+                            })
+                        }
+
+                        setToDutch.addEventListener("click", async () => {
+                            setToDutch.classList.toggle("opacity-50");
+                            setToEnglish.classList.toggle("opacity-50")
+                            translatePageOnDom("dutch");
+                        })
+                        setToEnglish.addEventListener("click", async () => {
+                            setToDutch.classList.toggle("opacity-50");
+                            setToEnglish.classList.toggle("opacity-50")
+                            translatePageOnDom("english");
+                        })
 
                         myNavBar.addEventListener("click", function () {
                             const mainContent = document.getElementById("mainContent");
@@ -104,12 +131,11 @@
 
 <body class="custom-green font-medium bg-[#EFECEA]" style="font-family: Outfit">
     <section id="header" class="text-"></section>
-    <section
-    id="mainContent"
+    <section id="mainContent"
         class="text-[#00672E] text-left sm:text-[24px] mx-8 list-disc flex flex-col gap-4 pb-64 py-32 px-4 sm:px-16">
-        <h1 class="font-bold">DATA PRIVACY</h1>
-        <h1>PRIVACY POLICY</h1>
-        <p>
+        <h1 class="font-bold" data-i18n="data_privacy">DATA PRIVACY</h1>
+        <h1 data-i18n="privacy_policy">PRIVACY POLICY</h1>
+        <p data-i18n="we_are_very">
 
 
             We are very delighted that you have shown interest in our enterprise. Data protection is of a particularly
@@ -123,7 +149,7 @@
             is necessary and there is no statutory basis for such processing, we generally obtain consent from the data
             subject.
         </p>
-        <p>
+        <p data-i18n="the_processing_of">
             The processing of personal data, such as the name, address, e-mail address, or telephone number of a data
             subject shall always be in line with the General Data Protection Regulation (GDPR), and in accordance with
             the
@@ -134,17 +160,17 @@
             data
             protection declaration, of the rights to which they are entitled.
         </p>
-        <p>
+        <p data-i18n="as_the_controller">
             As the controller, the Agentur Baumeister has implemented numerous technical and organizational measures to
             ensure the most complete protection of personal data processed through this website. However, Internet-based
             data transmissions may in principle have security gaps, so absolute protection may not be guaranteed. For
             this
             reason, every data subject is free to transfer personal data to us via alternative means, e.g. by telephone.
         </p>
-        <h2>
+        <h2 data-i18n="definition">
             1. Definitions
         </h2>
-        <p>
+        <p data-i18n="the_data_protection">
             The data protection declaration of the Agentur Baumeister is based on the terms used by the European
             legislator
             for the adoption of the General Data Protection Regulation (GDPR). Our data protection declaration should be
