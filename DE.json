@@ -34,8 +34,47 @@
        "pseudonymanisation" : "f) Pseudonimisering",
        "psedonymanisation_is" : "Pseudonimisering is de verwerking van persoonsgegevens op zodanige wijze dat de persoonsgegevens niet meer aan een specifieke betrokkene kunnen worden gekoppeld zonder dat er aanvullende gegevens worden gebruikt, mits deze aanvullende gegevens apart worden bewaard en technische en organisatorische maatregelen worden genomen om ervoor te zorgen dat de persoonsgegevens niet aan een geïdentificeerde of identificeerbare natuurlijke persoon worden gekoppeld."
   
+       ,
+    "personal_data_": "a) Persoonsgegevens",
+    "personal_data_means_any": "Persoonsgegevens zijn alle informatie over een geïdentificeerde of identificeerbare natuurlijke persoon ('betrokkene'). Een identificeerbare natuurlijke persoon is iemand die, direct of indirect, kan worden geïdentificeerd, met name aan de hand van een identificator zoals een naam, een identificatienummer, locatiegegevens, een online identificator of van een of meer factoren die specifiek zijn voor de fysieke, fysiologische, genetische, psychische, economische, culturele of sociale identiteit van die natuurlijke persoon.",
+
+    
+    
+    "data_subject_": "b) Betrokkene",
+    "data_subject_is_any": "De betrokkene is iedere geïdentificeerde of identificeerbare natuurlijke persoon wiens persoonsgegevens worden verwerkt door de voor de verwerking verantwoordelijke.",
+    
+  "processing_": "c) Verwerking",
+  "processing_is_any_": "Verwerking is elke bewerking of elk geheel van bewerkingen met betrekking tot persoonsgegevens of een geheel van persoonsgegevens, al dan niet uitgevoerd via geautomatiseerde middelen, zoals het verzamelen, vastleggen, ordenen, structureren, opslaan, bijwerken of wijzigen, opvragen, raadplegen, gebruiken, verstrekken door middel van doorzending, verspreiding of enige andere vorm van terbeschikkingstelling, samenbrengen, met elkaar in verband brengen, alsmede het beperken, wissen of vernietigen van gegevens.",
   
   
+  "restriction_of": "d) Beperking van de verwerking",
+  "restriction_of_processing_": "Beperking van de verwerking is het markeren van opgeslagen persoonsgegevens met als doel de verwerking ervan in de toekomst te beperken.", 
+
+
+  
+  "profiling": "e) Profilering",
+  "profiling_means_any_": "Profilering is elke vorm van geautomatiseerde verwerking van persoonsgegevens waarbij aan de hand van persoonsgegevens bepaalde persoonlijke aspecten van een natuurlijke persoon worden geëvalueerd, met name met de bedoeling om zijn beroepsprestaties, economische situatie, gezondheid, persoonlijke voorkeuren, interesses, betrouwbaarheid, gedrag, locatie of verplaatsingen te analyseren of te voorspellen.",
+  
+  "pseudonymisation": "f) Pseudonimisering",
+  "pseudonymisation_is_the_": "Pseudonimisering is het verwerken van persoonsgegevens op zodanige wijze dat de persoonsgegevens zonder het gebruik van aanvullende gegevens niet meer aan een specifieke betrokkene kunnen worden toegeschreven, mits deze aanvullende gegevens apart worden bewaard en technische en organisatorische maatregelen worden genomen om te waarborgen dat de persoonsgegevens niet aan een geïdentificeerde of identificeerbare natuurlijke persoon worden toegeschreven.", 
+
+
+  
+  "controller_or_": "g) Verwerkingsverantwoordelijke",
+  "controller_or_controller": "Verwerkingsverantwoordelijke is de natuurlijke of rechtspersoon, overheidsinstantie, dienst of ander orgaan die/dat, alleen of tezamen met anderen, het doel en de middelen voor de verwerking van persoonsgegevens vaststelt; wanneer de doelen en middelen van deze verwerking in de Unie of de lidstatenwetgeving worden vastgesteld, kan de verwerkingsverantwoordelijke of kunnen de specifieke criteria voor diens aanwijzing in het Unie- of lidstatenrecht worden voorzien.",
   
   
-    }
+  "processor": "h) Verwerker",
+  "processor_is_a_": "Verwerker is een natuurlijke of rechtspersoon, overheidsinstantie, dienst of ander orgaan die ten behoeve van de verwerkingsverantwoordelijke persoonsgegevens verwerkt.", 
+  
+  "recipient": "i) Ontvanger",
+  "recipient_is_a_": "Ontvanger is een natuurlijke of rechtspersoon, een overheidsinstantie, een dienst of een ander orgaan, al dan niet een derde partij, waaraan de persoonsgegevens worden verstrekt. Overheidsinstanties die in het kader van een specifiek onderzoek overeenkomstig het Unie- of lidstatelijk recht persoonsgegevens ontvangen, worden echter niet als ontvangers beschouwd; de verwerking van die gegevens door die overheidsinstanties is in overeenstemming met de toepasselijke regels inzake gegevensbescherming, afhankelijk van de doeleinden van de verwerking.",
+  
+  "third_party": "j) Derde",
+  "third_party_is": "Derde is een natuurlijke of rechtspersoon, een overheidsinstantie, een dienst of een ander orgaan, niet zijnde de betrokkene, de verwerkingsverantwoordelijke, de verwerker en de personen die onder rechtstreeks gezag van de verwerkingsverantwoordelijke of de verwerker gemachtigd zijn om de persoonsgegevens te verwerken.",
+  
+  "consent": "k) Toestemming",
+  "consent_of_the_": "Toestemming van de betrokkene is elke vrije, specifieke, geïnformeerde en ondubbelzinnige wilsuiting waarmee de betrokkene door middel van een verklaring of een duidelijke actieve handeling de verwerking van hem of haar betreffende persoonsgegevens aanvaardt."
+
+  
+}
