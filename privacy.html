@@ -49,6 +49,7 @@
                         const lowerBar = myNavBar.querySelector(".lowerBar");
                         const languageSelector = content.querySelector(".languageSelector");
                         const footer = document.getElementById("footer")
+                        const hero = document.getElementById("hero")
 
 
                         // LANGUAGE SWITCH
@@ -91,10 +92,12 @@
                                 if (mainContent) {
                                     mainContent.style.display = "block";
                                     footer.style.display = "block"
+                                    hero.style.display = "none"
+
                                 }
                             } else {
                                 dialog.show();
-
+                                hero.style.display = "block"
                                 languageSelector.classList.remove(
                                     "fixed",
                                     "left-8",
@@ -106,6 +109,7 @@
                                 if (mainContent) {
                                     mainContent.style.display = "none";
                                     footer.style.display = "none";
+
                                 }
                             }
 
@@ -708,7 +712,7 @@
         </p>
     </section>
     <section id="footer"></section>
-    <section id="hero"></section>
+    <section id="hero" class="hidden"></section>
 </body>
 
 </html>

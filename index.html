@@ -88,31 +88,13 @@
               heroSection.style.marginTop = "35vh";
               heroSection.classList.remove("transform")
               heroSection.classList.remove("translate-y-44")
+              footer.style.display = "block"
 
               // heroSection.scroll = 
             }
             else {
               dialog.show();
-
-              dialog.addEventListener("click", function (e) {
-                if (e.target) {
-                  heroText.style.display = "block";
-                  descriptionSection.style.display = "block";
-                  descriptionVectorSection.style.display = "block";
-                  strategySection.style.display = "block";
-                  collabSection.style.display = "block";
-                  footer.style.display = "block";
-
-                  upperBar.classList.remove("transform");
-                  upperBar.classList.remove("rotate-45");
-                  upperBar.classList.remove("top-0.5");
-                  lowerBar.classList.remove("transform");
-                  lowerBar.classList.remove("-rotate-45");
-                  lowerBar.classList.remove("-top-1");
-                  middleBar.classList.remove("hidden");
-                }
-
-              })
+             
 
 
 
