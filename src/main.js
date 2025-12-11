@@ -8,5 +8,5 @@ if (hash) {
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: "smooth" })
         }
-    }, 70)
+    }, 1000)
 }
