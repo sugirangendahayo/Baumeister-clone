@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-.greenBg{
-  background: #00672E;
+.greenBg {
+  background: #00672e;
   clip-path: polygon(
     59.63% 0%,
     24.53% 5.34%,
@@ -13,11 +13,21 @@
   );
 }
 
-.stickyBase { position: sticky; top: 0; }
-.shapeZLow { z-index: -2; }
-.shapeZHigh { z-index: 2; }
-.centerAbs { left: 0; right: 0; margin: auto; }
-
+.stickyBase {
+  position: sticky;
+  top: 0;
+}
+.shapeZLow {
+  z-index: -2;
+}
+.shapeZHigh {
+  z-index: 2;
+}
+.centerAbs {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
 body.home-page .home-page-show-vector {
   display: flex !important;
