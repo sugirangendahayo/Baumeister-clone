@@ -1,158 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/53a1123324.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Baumeister</title>
+    <link rel="icon" href="/assets/images/logoBaumeister.jpeg" />
+  </head>
+  <script type="module">
+    import i18next from "i18next";
+    import deTranslation from "./DE.json";
+    import enTranslation from "./EN.json";
+    const loadComponents = (id, url) => {
+      if (document.readyState === "complete") {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            let content = document.getElementById(id);
+            content.innerHTML = html;
+            const myNavBar = content.querySelector(".navBar");
+            const dialog = content.querySelector(".navigations");
+            const upperBar = myNavBar.querySelector(".upperBar");
+            const middleBar = myNavBar.querySelector(".middleBar");
+            const lowerBar = myNavBar.querySelector(".lowerBar");
+            const languageSelector = content.querySelector(".languageSelector");
+            const strategySection = document.getElementById("strategy");
+            const collabSection = document.getElementById("collab-section");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="/src/style.css" />
-  <script src="https://kit.fontawesome.com/53a1123324.js" crossorigin="anonymous"></script>
-  <title>Baumeister</title>
-  <link rel="icon" href="/assets/images/logoBaumeister.jpeg">
-</head>
-<script type="module">
-  import i18next from "i18next";
-  import deTranslation from "./DE.json";
-  import enTranslation from "./EN.json";
-  const loadComponents = (id, url) => {
-    if (document.readyState === "complete") {
-      fetch(url)
-        .then((response) => response.text())
-        .then((html) => {
+            // LANGUAGE SWITCH
+            const setToEnglish = content.querySelector("#set_to_english");
+            const setToDutch = content.querySelector("#set_to_dutch");
 
-          let content = document.getElementById(id);
-          content.innerHTML = html;
-          const myNavBar = content.querySelector(".navBar");
-          const dialog = content.querySelector(".navigations");
-          const upperBar = myNavBar.querySelector(".upperBar");
-          const middleBar = myNavBar.querySelector(".middleBar");
-          const lowerBar = myNavBar.querySelector(".lowerBar");
-          const languageSelector = content.querySelector(".languageSelector");
-          const strategySection = document.getElementById("strategy");
-          const collabSection = document.getElementById("collab-section");
+            const translatePageOnDom = (lang = "english") => {
+              //for translating every element with the data-i18n
+              // alert("Translating page to " + lang)
+              document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                el.textContent =
+                  lang === "english" ? enTranslation[key] : deTranslation[key];
+              });
+            };
 
-          // LANGUAGE SWITCH
-          const setToEnglish = content.querySelector("#set_to_english");
-          const setToDutch = content.querySelector("#set_to_dutch");
+            setToDutch.addEventListener("click", async () => {
+              setToDutch.classList.toggle("opacity-50");
+              setToEnglish.classList.toggle("opacity-50");
+              translatePageOnDom("dutch");
+            });
+            setToEnglish.addEventListener("click", async () => {
+              setToDutch.classList.toggle("opacity-50");
+              setToEnglish.classList.toggle("opacity-50");
+              translatePageOnDom("english");
+            });
 
-          const translatePageOnDom = (lang = "english") => {//for translating every element with the data-i18n
-            // alert("Translating page to " + lang)
-            document.querySelectorAll("[data-i18n]").forEach(el => {
-              const key = el.getAttribute("data-i18n");
-              el.textContent = lang === "english" ? enTranslation[key] : deTranslation[key];
-            })
-          }
+            myNavBar.addEventListener("click", function () {
+              const heroSection = document.getElementById("hero");
+              const heroText = document.getElementById("heroText");
+              const descriptionSection = document.getElementById("description");
+              const footer = document.getElementById("footer");
+              const descriptionVectorSection =
+                document.getElementById("description-vector");
 
-          setToDutch.addEventListener("click", async () => {
-            setToDutch.classList.toggle("opacity-50");
-            setToEnglish.classList.toggle("opacity-50")
-            translatePageOnDom("dutch");
-          })
-          setToEnglish.addEventListener("click", async () => {
-            setToDutch.classList.toggle("opacity-50");
-            setToEnglish.classList.toggle("opacity-50")
-            translatePageOnDom("english");
-          })
+              if (dialog.open) {
+                dialog.close();
 
-          myNavBar.addEventListener("click", function () {
+                upperBar.classList.remove("transform");
+                upperBar.classList.remove("rotate-45");
+                upperBar.classList.remove("top-0.5");
+                lowerBar.classList.remove("transform");
+                lowerBar.classList.remove("-rotate-45");
+                lowerBar.classList.remove("-top-1");
+                middleBar.classList.remove("hidden");
 
-            const heroSection = document.getElementById("hero");
-            const heroText = document.getElementById("heroText");
-            const descriptionSection = document.getElementById("description");
-            const footer = document.getElementById("footer");
-            const descriptionVectorSection = document.getElementById("description-vector");
+                languageSelector.classList.add(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.remove("absolute");
+                heroText.style.display = "block";
+                descriptionSection.style.display = "block";
+                descriptionVectorSection.style.display = "block";
+                strategySection.style.display = "block";
+                collabSection.style.display = "block";
+                heroSection.style.marginTop = "35vh";
+                heroSection.classList.remove("transform");
+                heroSection.classList.remove("translate-y-44");
+                footer.style.display = "block";
 
+                // heroSection.scroll =
+              } else {
+                dialog.show();
 
-            if (dialog.open) {
-              dialog.close();
+                upperBar.classList.add("transform");
+                upperBar.classList.add("rotate-45");
+                upperBar.classList.add("top-0.5");
+                lowerBar.classList.add("transform");
+                lowerBar.classList.add("-rotate-45");
+                lowerBar.classList.add("-top-1");
+                middleBar.classList.add("hidden");
 
-              upperBar.classList.remove("transform");
-              upperBar.classList.remove("rotate-45");
-              upperBar.classList.remove("top-0.5");
-              lowerBar.classList.remove("transform");
-              lowerBar.classList.remove("-rotate-45");
-              lowerBar.classList.remove("-top-1");
-              middleBar.classList.remove("hidden");
-
-              languageSelector.classList.add("fixed", "left-8", "top-12", "md:top-4");
-              languageSelector.classList.remove("absolute");
-              heroText.style.display = "block";
-              descriptionSection.style.display = "block";
-              descriptionVectorSection.style.display = "block";
-              strategySection.style.display = "block";
-              collabSection.style.display = "block";
-              heroSection.style.marginTop = "35vh";
-              heroSection.classList.remove("transform")
-              heroSection.classList.remove("translate-y-44")
-              footer.style.display = "block"
-
-              // heroSection.scroll = 
-            }
-            else {
-              dialog.show();
-             
-
-
-
-              upperBar.classList.add("transform");
-              upperBar.classList.add("rotate-45");
-              upperBar.classList.add("top-0.5");
-              lowerBar.classList.add("transform");
-              lowerBar.classList.add("-rotate-45");
-              lowerBar.classList.add("-top-1");
-              middleBar.classList.add("hidden");
-
-              languageSelector.classList.remove("fixed", "left-8", "top-12", "md:top-4");
-              languageSelector.classList.add("absolute");
-              heroText.style.display = "none";
-              descriptionSection.style.display = "none";
-              descriptionVectorSection.style.display = "none";
-              footer.style.display = "none";
-              collabSection.style.display = "none";
-              strategySection.style.display = "none";
-              heroSection.classList.add("transform")
-              heroSection.classList.add("translate-y-44")
-              currentLocation = window.crollY
-              window.scrollTo(0, 0);
-              document.classList.add("transition-all");
-            }
-
-
+                languageSelector.classList.remove(
+                  "fixed",
+                  "left-8",
+                  "top-12",
+                  "md:top-4"
+                );
+                languageSelector.classList.add("absolute");
+                heroText.style.display = "none";
+                descriptionSection.style.display = "none";
+                descriptionVectorSection.style.display = "none";
+                footer.style.display = "none";
+                collabSection.style.display = "none";
+                strategySection.style.display = "none";
+                heroSection.classList.add("transform");
+                heroSection.classList.add("translate-y-44");
+                currentLocation = window.crollY;
+                window.scrollTo(0, 0);
+                document.classList.add("transition-all");
+              }
+            });
           });
-        });
-
+      }
+    };
+    window.onload = function () {
+      loadComponents("header", "/sections/navBar.html");
+      loadComponents("hero", "/sections/hero.html");
+      loadComponents("description", "/sections/description.html");
+      loadComponents("description-vector", "/sections/description-vector.html");
+      loadComponents("strategy", "/sections/strategy.html");
+      loadComponents("collab-section", "/sections/collab-section.html");
+      loadComponents("footer", "/sections/footer.html");
+    };
+    let hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 1000);
     }
-  };
-  window.onload = function () {
-    loadComponents("header", "/sections/navBar.html");
-    loadComponents("hero", "/sections/hero.html");
-    loadComponents("description", "/sections/description.html");
-    loadComponents(
-      "description-vector",
-      "/sections/description-vector.html"
-    );
-    loadComponents("strategy", "/sections/strategy.html");
-    loadComponents("collab-section", "/sections/collab-section.html");
-    loadComponents("footer", "/sections/footer.html");
-  };
-</script>
+  </script>
 
-<body class="home-page bg-[#EFECEA] overflow-x-hidden" style="font-family: Outfit">
-  <div id="header"></div>
-  <!--   Hero section -->
-  <div id="hero"></div>
-  <!--Description section-->
-  <div id="description"></div>
-  <!--Vectors below Description section-->
-  <div id="description-vector" class="sticky top-0"></div>
-  <div id="strategy" class="mx-8 sm:mx-24"></div>
-  <div id="collab-section"></div>
-  <div id="footer" class="h-full font-semibold pt-48 md:pt-0"></div>
-</body>
-<script src="/public/script/main.js"></script>
-
+  <body
+    class="home-page bg-[#EFECEA] overflow-x-hidden"
+    style="font-family: Outfit"
+  >
+    <div id="header"></div>
+    <!--   Hero section -->
+    <div id="hero"></div>
+    <!--Description section-->
+    <div id="description"></div>
+    <!--Vectors below Description section-->
+    <div id="description-vector" class="sticky top-0"></div>
+    <div id="strategy" class="mx-8 sm:mx-24"></div>
+    <div id="collab-section"></div>
+    <div id="footer" class="h-full font-semibold pt-48 md:pt-0"></div>
+  </body>
 </html>

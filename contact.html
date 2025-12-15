@@ -131,6 +131,15 @@
     loadComponents("hero", "/sections/hero-vector.html");
 
   };
+  let hash = window.location.hash
+if (hash) {
+    setTimeout(() => {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" })
+        }
+    }, 1000)
+}
 </script>
 
 <body class=" bg-custom-beige overflow-x-hidden text-[#006b3f]" style="font-family: Outfit">
@@ -176,6 +185,6 @@
   <div id="footer"></div>
   <div id="hero" class="hidden"></div>
 </body>
-<script src="/public/script/main.js"></script>
+
 
 </html>
